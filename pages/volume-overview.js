@@ -24,7 +24,9 @@ export default function volumeOverview() {
       </ol>
       <br></br>
       <br></br>
-
+      <button type="button">
+        <Link href="/">previous</Link>
+      </button>
       <button type="button">
         <Link href="/the-fellowship-of-the-ring">next</Link>
       </button>

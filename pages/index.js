@@ -5,6 +5,11 @@ export default function HomePage() {
     <div>
       <h1>Lord of the Rings</h1>
       <Link href="/volume-overview">Volumes</Link>
+      <br></br>
+      <br></br>
+      <button type="button">
+        <Link href="/volume-overview">next</Link>
+      </button>
     </div>
   );
 }
