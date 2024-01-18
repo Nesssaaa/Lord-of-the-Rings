@@ -1,35 +1,29 @@
 import Link from "next/link";
 import { introduction } from "/resources/lib/data";
+import { useRouter } from "next/router";
+import { volumes } from "@/resources/lib/data";
+import Head from "next/head";
 
-export default function volumeOverview() {
+export default function VolumeOverview() {
+  const router = useRouter();
   return (
     <>
+      <Head>
+        <title>List of Volumes of LOTR</title>
+      </Head>
       <h1>Lord Of The Rings - Book Series</h1>
       <p>{introduction}</p>
 
       <h2>All Volumes</h2>
-      <ol>
-        <li>
-          <Link href="/the-fellowship-of-the-ring">
-            The fellowship of the rings
-          </Link>
-        </li>
-
-        <li>
-          <Link href="/the-two-towers">The two towers</Link>
-        </li>
-        <li>
-          <Link href="/the-return-of-the-king">The return of the king</Link>
-        </li>
-      </ol>
-      <br></br>
-      <br></br>
-      <button type="button">
-        <Link href="/">previous</Link>
-      </button>
-      <button type="button">
-        <Link href="/the-fellowship-of-the-ring">next</Link>
-      </button>
+      <ul>
+        {volumes.map((volume) => {
+          return (
+            <li key={volume.slug}>
+              <Link href={`/${volume.slug}`}>{volume.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 }
